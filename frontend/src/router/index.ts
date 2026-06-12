@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import BoardPage from '@/pages/BoardPage.vue';
 import CompaniesPage from '@/pages/CompaniesPage.vue';
+import DashboardPage from '@/pages/DashboardPage.vue';
 import PositionDetailPage from '@/pages/PositionDetailPage.vue';
 import StatsPage from '@/pages/StatsPage.vue';
 import TimelinePage from '@/pages/TimelinePage.vue';
@@ -10,7 +11,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/board'
+      redirect: '/dashboard'
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: DashboardPage
     },
     {
       path: '/board',

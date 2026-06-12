@@ -11,7 +11,8 @@ import {
   CloudUploadOutline,
   MoonOutline,
   SunnyOutline,
-  GridOutline
+  GridOutline,
+  HomeOutline
 } from '@vicons/ionicons5';
 import { downloadBackup, loadBackupFile } from '@/api/storage';
 import { useCompanyStore } from '@/stores/company';
@@ -32,6 +33,7 @@ const importStatus = ref('');
 const naiveTheme = computed(() => (themeStore.isDark ? darkTheme : null));
 
 const navItems = [
+  { path: '/dashboard', label: '工作台', icon: HomeOutline },
   { path: '/board', label: '看板', icon: GridOutline },
   { path: '/timeline', label: '时间线', icon: CalendarOutline },
   { path: '/stats', label: '统计', icon: AnalyticsOutline },
@@ -39,7 +41,7 @@ const navItems = [
 ];
 
 function isActive(path: string): boolean {
-  return route.path === path || (path === '/board' && route.path === '/');
+  return route.path === path || (path === '/dashboard' && route.path === '/');
 }
 
 function handleExport(): void {
@@ -236,7 +238,7 @@ async function handleImport(event: Event): Promise<void> {
   }
 
   .nav-list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .nav-item {
